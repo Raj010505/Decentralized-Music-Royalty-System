@@ -1,0 +1,65 @@
+Use these exact steps on Windows PowerShell.
+
+ONE-TIME SETUP (only first time)
+1. Open PowerShell in project root.
+Set-Location "c:\Users\Raj Dubey\Desktop\bct"
+
+2. Install all dependencies.
+npm run install:all
+
+3. Optional full health check.
+npm run verify
+
+
+RUN BACKEND + FRONTEND (every time)
+You need 3 terminals open at the same time.
+
+Terminal 1: Start backend blockchain node
+1. Set-Location "c:\Users\Raj Dubey\Desktop\bct\blockchain"
+2. npm run node
+3. Keep this terminal running (do not close).
+
+Terminal 2: Deploy backend contracts + seed demo data
+1. Set-Location "c:\Users\Raj Dubey\Desktop\bct"
+2. npm run deploy:localhost
+3. npm run seed:localhost
+
+Terminal 3: Start frontend
+1. Set-Location "c:\Users\Raj Dubey\Desktop\bct\frontend"
+2. npm run dev
+
+Open app:
+http://localhost:3000
+
+
+METAMASK (one-time for browser transactions)
+1. Add network manually:
+Network Name: Hardhat Local
+RPC URL: http://127.0.0.1:8545
+Chain ID: 31337
+Currency Symbol: ETH
+
+2. Import funded local account private key:
+0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
+
+IF YOU GET PORT 8545 ALREADY IN USE
+This means a node is already running.
+You can either use that running node, or stop it and start fresh.
+
+Find process on 8545:
+Get-NetTCPConnection -LocalPort 8545 | Select-Object -ExpandProperty OwningProcess -Unique
+
+Kill process (replace PID):
+Stop-Process -Id PID -Force
+
+Then start node again:
+Set-Location "c:\Users\Raj Dubey\Desktop\bct\blockchain"
+npm run node
+
+
+STOP EVERYTHING
+1. In each running terminal, press Ctrl + C once.
+2. Close terminals after processes stop.
+
+If you want, I can give you a strict click-by-click test flow next (Register -> Stream -> Auction -> Finalize -> History) so you can verify the full product in 5 minutes.

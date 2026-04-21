@@ -1,0 +1,18 @@
+{
+  "name": "music-royalty-auction-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix blockchain install && npm --prefix frontend install",
+    "test:blockchain": "npm --prefix blockchain run test",
+    "compile:blockchain": "npm --prefix blockchain run compile",
+    "node:blockchain": "npm --prefix blockchain run node",
+    "deploy:localhost": "npm --prefix blockchain run deploy:localhost",
+    "seed:localhost": "npm --prefix blockchain run seed:localhost",
+    "sync:frontend-env": "node scripts/sync-frontend-env.js",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "lint:frontend": "npm --prefix frontend run lint",
+    "build:frontend": "npm --prefix frontend run build",
+    "verify": "npm run test:blockchain && npm run lint:frontend && npm run build:frontend"
+  }
+}

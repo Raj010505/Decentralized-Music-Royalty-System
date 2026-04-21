@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+*/node_modules/
+**node_modules**
+
+# Build outputs
+dist/
+build/
+*.dbg.json
+cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Temporary
+temp/
+tmp/
+
+# Coverage
+coverage/
+.nyc_output/
